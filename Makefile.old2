@@ -1,0 +1,50 @@
+#******************************************************************************
+# Copyright (C) 2017 by Alex Fosdick - University of Colorado
+#
+# Redistribution, modification or use of this software in source or binary
+# forms is permitted as long as the files maintain this copyright. Users are 
+# permitted to modify this and use it to learn about the field of embedded
+# software. Alex Fosdick and the University of Colorado are not liable for any
+# misuse of this material. 
+#
+#*****************************************************************************
+
+#------------------------------------------------------------------------------
+# Make file for Week 2 Application Assigment in the Coursera course The introduce
+# to Embedded System Software and Development Environments
+#
+# Use: make [TARGET] [PLATFORM-OVERRIDES]
+#
+# Build Targets:
+#      all: compiles all object files without linking
+#      build : builds and links all source files
+#      clean : remove all generated files
+#      [file].o : build object file
+#      [file].asm : build assembly file
+#      [file].i : build preprocessed file
+#      [file].d : build dependecy file
+#
+# Platform Overrides:
+#      HOST
+#      MSP432
+#
+#------------------------------------------------------------------------------
+include sources.mk
+
+BUILD_DIR = build
+TARGET = hahaha
+.PHONY: dir_dir hello_dir biuld clean
+dir_dir :
+	@echo "Create dirrictiry"
+	@mkdir -p $(BUILD_DIR)
+
+
+build : $(TARGET) | dir_dir
+
+$(TARGET) : hello_dir | dir_dir
+	@echo "Compiling the main target."
+
+hello_dir :
+	@echo "Hello world"
+clean : 
+	@rm -rf $(BUILD_DIR)
